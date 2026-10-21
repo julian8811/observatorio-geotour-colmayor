@@ -12,7 +12,11 @@
   </head>
   <body>
     <div class="app">
+      <div class="scrim" data-close-nav></div>
       <aside class="sidebar">
+        <button class="drawer-close" type="button" data-close-nav aria-label="Cerrar menú">
+          <span class="material-symbols-outlined">close</span>
+        </button>
         <div>
           <img class="brand-logo" src="/logo.png" alt="Institución Universitaria Colegio Mayor de Antioquia" />
           <p class="product">Observatorio GeoTour</p>
@@ -31,6 +35,13 @@
             <b data-bind="telemetry">99.2%</b>
           </div>
         </div>
+        <div class="side-user">
+          <img class="avatar" src="/avatar-dayanna.jpg" alt="" />
+          <div>
+            <strong>Dayanna Fernández Flórez</strong>
+            <span>Analista Senior Geo</span>
+          </div>
+        </div>
         <div class="side-foot">
           <img src="/escudo.png" alt="" />
           <span>I.U. Colegio Mayor de Antioquia</span>
@@ -38,6 +49,9 @@
       </aside>
       <div class="workspace">
         <header class="topbar">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menú">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
           <div class="filters">
             <label class="search">
               <span class="material-symbols-outlined">search</span>

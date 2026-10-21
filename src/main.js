@@ -97,10 +97,29 @@ function exportReport() {
   URL.revokeObjectURL(link.href);
 }
 
+function setNavOpen(open) {
+  document.body.classList.toggle("nav-open", open);
+  const button = document.querySelector(".menu-toggle");
+  if (!button) return;
+  button.setAttribute("aria-expanded", String(open));
+  button.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  const icon = button.querySelector(".material-symbols-outlined");
+  if (icon) icon.textContent = open ? "close" : "menu";
+}
+
 document.body.addEventListener("click", (event) => {
+  if (event.target.closest(".menu-toggle")) {
+    setNavOpen(!document.body.classList.contains("nav-open"));
+    return;
+  }
+  if (event.target.closest("[data-close-nav]")) {
+    setNavOpen(false);
+    return;
+  }
   const route = event.target.closest("[data-route]");
   if (route) {
     location.hash = route.dataset.route;
+    setNavOpen(false);
     return;
   }
   const segment = event.target.closest("[data-segment]");
@@ -141,6 +160,10 @@ document.body.addEventListener("input", (event) => {
     again.focus();
     again.setSelectionRange(start, start);
   }
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setNavOpen(false);
 });
 
 window.addEventListener("hashchange", () => {
