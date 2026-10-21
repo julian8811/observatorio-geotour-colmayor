@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Observatorio GeoTour · I.U. Colegio Mayor de Antioquia</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div>
+          <img class="brand-logo" src="/logo.png" alt="Institución Universitaria Colegio Mayor de Antioquia" />
+          <p class="product">Observatorio GeoTour</p>
+          <div class="status-chip">
+            <span><i class="pulse-dot"></i> Sistema geo-activo</span>
+            <b>v1</b>
+          </div>
+          <nav class="nav" aria-label="Secciones">
+            <button type="button" data-route="resumen"><span class="material-symbols-outlined">dashboard</span>Resumen general</button>
+            <button type="button" data-route="afluencia"><span class="material-symbols-outlined">location_city</span>Afluencia y destinos</button>
+            <button type="button" data-route="gasto"><span class="material-symbols-outlined">payments</span>Gasto y ocupación</button>
+            <button type="button" data-route="movilidad"><span class="material-symbols-outlined">flight_takeoff</span>Movilidad aérea y rutas</button>
+          </nav>
+          <div class="telemetry">
+            <span>Telemetría IoT</span>
+            <b data-bind="telemetry">99.2%</b>
+          </div>
+        </div>
+        <div class="side-foot">
+          <img src="/escudo.png" alt="" />
+          <span>I.U. Colegio Mayor de Antioquia</span>
+        </div>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <div class="filters">
+            <label class="search">
+              <span class="material-symbols-outlined">search</span>
+              <input id="q" data-query type="search" placeholder="Buscar destino, zona o código" />
+            </label>
+            <select data-filter="region" aria-label="Región">
+              <option value="global">Global</option>
+              <option value="mediterraneo">Mediterráneo</option>
+              <option value="caribe">Caribe</option>
+              <option value="andes">Región Andina</option>
+              <option value="sudeste">Sudeste Asiático</option>
+            </select>
+            <select data-filter="period" aria-label="Periodo">
+              <option value="temporada">Temporada Alta 2024</option>
+              <option value="dias30">Últimos 30 días</option>
+              <option value="q3">Q3 2024 Acumulado</option>
+              <option value="ytd">Año en curso (YTD)</option>
+            </select>
+            <div class="seg" role="group" aria-label="Segmento">
+              <button type="button" data-segment="intl" class="on">Internacional</button>
+              <button type="button" data-segment="nac">Nacional</button>
+            </div>
+            <div class="currency" role="group" aria-label="Moneda">
+              <button type="button" data-currency="USD" class="on">USD</button>
+              <button type="button" data-currency="EUR">EUR</button>
+            </div>
+          </div>
+          <div class="user">
+            <div>
+              <strong>Dayanna Fernández Flórez</strong>
+              <span>Analista Senior Geo</span>
+            </div>
+            <img class="avatar" src="/avatar-dayanna.jpg" alt="Dayanna Fernández Flórez" />
+          </div>
+        </header>
+        <main id="view"></main>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
